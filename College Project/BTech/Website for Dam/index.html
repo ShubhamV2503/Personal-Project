@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Dam</title>
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i"
+    rel="stylesheet" />
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet" />
+  <link href="lib/hover/hover.min.css" rel="stylesheet" />
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet" />
+
+  <!-- Responsive css -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon-32x32.png" />
+</head>
+
+<body>
+  <!-- firebase script -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
+
+  <!-- start section navbar -->
+  <nav id="main-nav">
+    <div class="row">
+      <div class="container">
+        <div class="logo homebtn">
+          <a href="index.html">WebPage</a>
+        </div>
+
+        <div class="responsive">
+          <i data-icon="m" class="ion-navicon-round"></i>
+        </div>
+
+        <ul class="nav-menu list-unstyled">
+          <li><a href="#header" class="smoothScroll">Home</a></li>
+          <li><a href="#about" class="smoothScroll">About</a></li>
+          <li><a href="#portfolio" class="smoothScroll">Gallery</a></li>
+          <li>
+            <a href="#journal" class="smoothScroll">More Info</a>
+          </li>
+          <li><a href="#contact" class="smoothScroll">Contact</a></li>
+
+        </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End section navbar -->
+
+  <!-- start section header -->
+  <div id="header" class="home">
+    <div class="container">
+      <div class="header-content">
+        <h1>Nagarjuna Sagar Dam<span class="typed"></span></h1>
+        <p>Across Krishna River</p>
+
+      </div>
+    </div>
+  </div>
+  <!-- End section header -->
+
+  <!-- start section about us -->
+  <div id="about" class="paddsection">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4">
+          <div class="div-img-bg">
+            <div class="about-img">
+              <img src="images/logo.jpg" class="img-responsive" alt="me" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="about-descr">
+            <p class="p-heading">
+              About Us.
+            </p>
+            <p class="separator">
+              jhjdsgj
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end section about us -->
+
+
+
+  <!-- start section portfolio -->
+  <div id="portfolio" class="text-center paddsection">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Gallery</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="portfolio-list">
+            <ul class="nav list-unstyled" id="portfolio-flters">
+              <li class="filter filter-active" data-filter=".all">All</li>
+              <li class="filter" data-filter=".branding">
+                Section
+              </li>
+              <li class="filter" data-filter=".mockups">Structure</li>
+            </ul>
+          </div>
+
+          <div class="portfolio-container">
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits webdesign">
+              <a class="popup-img" href="images/portfolio/1.jpg">
+                <img src="images/portfolio/1.jpg" alt="img" />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits photography">
+              <a class="popup-img" href="images/portfolio/2.jpeg">
+                <img src="images/portfolio/2.jpg" alt="img" />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding webdesig photographyn">
+              <a class="popup-img" href="images/portfolio/3.jpg">
+                <img src="images/portfolio/3.jpg" alt="img" />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups webdesign photography">
+              <a class="popup-img" href="images/portfolio/4.jpeg">
+                <img src="images/portfolio/4.jpg" alt="img" />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits photography">
+              <a class="popup-img" href="images/portfolio/5.jpg">
+                <img src="images/portfolio/5.jpg" alt="img" />
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all mockups uikits webdesign">
+              <a class="popup-img" href="images/portfolio/6.jpg">
+                <img src="images/portfolio/6.jpg" alt="img" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End section portfolio -->
+
+  <!-- start section More info -->
+  <div id="journal" class="text-left paddsection">
+    <div class="container">
+      <div class="section-title text-center journal">
+        <h3>More Info</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="journal-block">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="journal-info">
+              <a href="history.html"><img src="images/breakfast/main.jpg" class="img-responsive" alt="img" /></a>
+
+              <div class="journal-txt">
+                <h4>
+                  <a href="history.html">History</a>
+                </h4>
+                <p class="separator">
+                  The Nizam made the British engineers begin the survey work for this dam across the Krishna River in the year 1903.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="journal-info">
+              <a href="Construction.html"><img src="images/lunch/main3.jpg" class="img-responsive" alt="img" /></a>
+
+              <div class="journal-txt">
+                <h4>
+                  <a href="Construction.html">Construction</a>
+                </h4>
+                <p class="separator">
+                  Constructed between 1955 and 1967, the dam created a water reservoir with gross storage capacity of 11.472 billion cubic metres (405.1×109 cu ft).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="journal-info">
+              <a href="util.html"><img src="images/d1.jpg" class="img-responsive" alt="img" /></a>
+
+              <div class="journal-txt">
+                <h4>
+                  <a href="util.html">Utilisation</a>
+                </h4>
+                <p class="separator">
+                  The right canal (Jawahar canal) is 203 km (126 mi) long with maximum 311.5 cumecs capacity and irrigates 1.117 million acres (4,520 km2) of land in Guntur and Prakasam districts. 
+                </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End section journal -->
+  <br>
+  <br>
+
+
+  <!-- start sectoion contact -->
+  <div id="contact" class="paddsection cta" >
+    <div class="container">
+      <div class="contact-block1">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="contact-contact">
+              <h2 class=" black">GET IN TOUCH</h2>
+
+              <ul class="contact-details">
+                <li><span>Thakur College of Engineering & Technology</span></li>
+                <li><span>Shubham: +919004350596</span></li>
+                <li><span>Karunesh: +918291427768</span></li>
+                <li><span>Rohit: +917378826756</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    To send your query or message click below
+                  </div>
+                </div>
+
+
+
+                <div class="col-lg-12">
+                  <button type="submit" class="btn btn-defeault btn-send" >
+                    <a href="">Click Here</a>
+                  </button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- start sectoion contact -->
+
+  <!-- start section footer -->
+  <div id="footer" class="text-center">
+    <div class="container">
+      <div class="socials-media text-center">
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.facebook.com/tcetmumbaiofficial/"><i class="ion-social-facebook"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/tcetmumbai.in/"><i class="ion-social-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/school/thakur-college-of-engineering-and-technology"><i class="ion-social-linkedin"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <p>&copy; Build by Shubham Vishwakarma. All rights reserved.</p>
+    </div>
+  </div>
+  <!-- End section footer -->
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/typed/typed.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!--  Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
