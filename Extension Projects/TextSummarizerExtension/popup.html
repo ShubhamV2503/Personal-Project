@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Summarizer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 15px;
+      width: 300px;
+      background-color: #f9f9f9;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      resize: vertical;
+      margin-bottom: 10px;
+      font-size: 14px;
+      padding: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+    #result {
+      margin-top: 10px;
+      white-space: pre-wrap;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Text Summarizer</h3>
+  <textarea id="inputText" placeholder="Paste text here or select text on a page"></textarea>
+  <button id="summarizeBtn" disabled>Summarize</button>
+  <div id="result"></div>
+
+  <script>
+    const inputText = document.getElementById("inputText");
+    const summarizeBtn = document.getElementById("summarizeBtn");
+    const resultDiv = document.getElementById("result");
+
+    inputText.addEventListener("input", () => {
+      summarizeBtn.disabled = inputText.value.trim().length < 10;
+      resultDiv.textContent = "";
+    });
+
+    summarizeBtn.addEventListener("click", () => {
+      const text = inputText.value.trim();
+      if (text.length < 10) return;
+
+      summarizeBtn.disabled = true;
+      resultDiv.textContent = "Summarizing...";
+
+      // Send message to background to summarize
+      chrome.runtime.sendMessage({ action: "summarize", text }, (response) => {
+        // Response not used here, we listen for message from background instead
+      });
+    });
+
+    // Listen for summary from background script
+    chrome.runtime.onMessage.addListener((message) => {
+      if (message.action === "showSummary") {
+        resultDiv.textContent = message.summary;
+        summarizeBtn.disabled = false;
+      }
+    });
+
+    // On popup open, clear fields
+    document.addEventListener("DOMContentLoaded", () => {
+      inputText.value = "";
+      summarizeBtn.disabled = true;
+      resultDiv.textContent = "";
+    });
+  </script>
+</body>
+</html>
