@@ -1,0 +1,112 @@
+{
+  "name": "GitHub Daily Commit",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "ShubhamV2503",
+          "mode": "list",
+          "cachedResultName": "ShubhamV2503",
+          "cachedResultUrl": "https://github.com/ShubhamV2503"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Chatbot",
+          "mode": "list",
+          "cachedResultName": "Chatbot",
+          "cachedResultUrl": "https://github.com/ShubhamV2503/Chatbot"
+        },
+        "filePath": "code.py",
+        "fileContent": "={{ $node[\"codemaker\"].json[\"pythonCode\"] }}",
+        "commitMessage": "=update previous version - {{ $now }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        -180
+      ],
+      "id": "d9dbbe1b-991a-4cdf-8d7b-0e6832fbb93c",
+      "name": "GitHub",
+      "webhookId": "6dc38425-4eb0-4121-8aec-386cc1bdab20",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "DtR7fWEPLfqA123g",
+          "name": "GitHub account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -760,
+        -180
+      ],
+      "id": "07aeff99-4b8c-47b1-b99e-6e34d97271c6",
+      "name": "Schedule1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiCode = `\n# A simple AI program using scikit-learn to classify data with a Decision Tree\n# Generated on ${new Date().toISOString()}\n\n# Import necessary libraries\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.metrics import accuracy_score\nimport numpy as np\n\n# Generate a synthetic dataset for classification\nX, y = make_classification(\n    n_samples=1000,           # Number of data points\n    n_features=5,             # Number of features\n    n_informative=3,          # Number of informative features\n    n_redundant=0,            # Number of redundant features\n    random_state=${Math.floor(Math.random() * 1000)}  # Random seed for reproducibility\n)\n\n# Split the dataset into training and testing sets\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)\n\n# Initialize the Decision Tree Classifier\nclf = DecisionTreeClassifier(max_depth=${Math.floor(Math.random() * 5) + 3})  # Random max_depth between 3 and 7\n\n# Train the model\nclf.fit(X_train, y_train)\n\n# Make predictions on the test set\ny_pred = clf.predict(X_test)\n\n# Calculate accuracy\naccuracy = accuracy_score(y_test, y_pred)\nprint(\"Model Accuracy:\", accuracy)\n\n# Display a few predictions\nprint(\"Sample Predictions (first 5 test samples):\")\nfor i in range(5):\n    print(f\"Sample {i+1}: Features={X_test[i]}, Predicted Class={y_pred[i]}, Actual Class={y_test[i]}\")\n\n# Feature importance (how much each feature contributes to the decision)\nprint(\"Feature Importance:\", clf.feature_importances_)\n`;\n\nreturn [{ json: { pythonCode: aiCode.trim() } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -540,
+        -180
+      ],
+      "id": "4b6165dd-dca4-4852-a42d-cc64419b0374",
+      "name": "codemaker"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule1": {
+      "main": [
+        [
+          {
+            "node": "codemaker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "codemaker": {
+      "main": [
+        [
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0e27977e-f43c-4c2c-8538-787fc9ab42d1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1a57419738b3f14ed18365991549b243f2f0d1df36ce9043e4abff3f4197a4d4"
+  },
+  "id": "s6WiUHh7zCBFoSaE",
+  "tags": []
+}

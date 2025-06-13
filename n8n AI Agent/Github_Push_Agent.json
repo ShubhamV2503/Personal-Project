@@ -1,0 +1,90 @@
+{
+  "name": "Github Push Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "owner": {
+          "__rl": true,
+          "value": "ShubhamV2503",
+          "mode": "list",
+          "cachedResultName": "ShubhamV2503",
+          "cachedResultUrl": "https://github.com/ShubhamV2503"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "vexalance",
+          "mode": "list",
+          "cachedResultName": "vexalance",
+          "cachedResultUrl": "https://github.com/ShubhamV2503/vexalance"
+        },
+        "events": [
+          "push"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [
+        -920,
+        -400
+      ],
+      "id": "433bca38-f4db-4e3f-81cc-77b43c921e84",
+      "name": "Github Trigger",
+      "webhookId": "8ac1c5ba-7121-424e-b396-2f8c81da4516",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "Uh84YGZc3hJrcTcl",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "845733046",
+        "text": "=New push to {{ $node[\"Github Trigger\"].json[\"repository\"][\"name\"] || \"Unknown\" }}! 🚀\nCommit: {{ $node[\"Github Trigger\"].json[\"head_commit\"][\"message\"] || $node[\"Github Trigger\"].json[\"commits\"][0][\"message\"] || \"No commit message\" }}\nBy: {{ $node[\"Github Trigger\"].json[\"pusher\"][\"name\"] || $node[\"Github Trigger\"].json[\"pusher\"][\"username\"] || \"Unknown\" }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -480,
+        -400
+      ],
+      "id": "ec9914be-8de1-42c7-805d-f3a13611aeb7",
+      "name": "My Telegram Bot",
+      "webhookId": "4991b179-9636-4d1c-b34d-bd50cba7b269",
+      "credentials": {
+        "telegramApi": {
+          "id": "XXv4RFflmBeLYqJ1",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Github Trigger": {
+      "main": [
+        [
+          {
+            "node": "My Telegram Bot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8ee02ca9-c56e-4b61-9b0a-01e1aabd595d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1a57419738b3f14ed18365991549b243f2f0d1df36ce9043e4abff3f4197a4d4"
+  },
+  "id": "bpbtrruAZKptqsNN",
+  "tags": []
+}
